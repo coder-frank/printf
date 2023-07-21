@@ -11,7 +11,7 @@ int _printf(const char *format, ...)
 {
 	va_list ap;
 	va_start(ap, format);
-	int i;
+	int j;
 	int size;
 	char word;
 	char *string;
@@ -27,14 +27,14 @@ int _printf(const char *format, ...)
 		return (-1);
 
 	size = strlen(format);
-	for (i = 0; i < size; i++)
+	for (j = 0; j < size; j++)
 	{
-		if (format[i] == '\n')
+		if (format[j] == '\n')
 			size--;
-		if (format[i] == '%')
+		if (format[j] == '%')
 		{
-			i++;
-			switch (format[i])
+			j++;
+			switch (format[j])
 			{
 				case 'c':
 					word = va_arg(ap, int);
@@ -45,11 +45,11 @@ int _printf(const char *format, ...)
 					printf("%s", string);
 					break;
 				case 'd':
-					int number = va_arg(ap, int);
+					number = va_arg(ap, int);
 					printf("%d", number);
 					break;
 				case 'i':
-					int octal = va_arg(ap, int);
+					octal = va_arg(ap, int);
 					printf("%i", octal);
 					break;
 				case 'u':
@@ -79,12 +79,12 @@ int _printf(const char *format, ...)
 
 				default:
 					putchar('%');
-					putchar(format[i]);
+					putchar(format[j]);
 					break;
 			}
 		} else
 		{
-			putchar(format[i]);
+			putchar(format[j]);
 		}
 	}
 	return (size);
