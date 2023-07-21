@@ -10,7 +10,6 @@
 int _printf(const char *format, ...)
 {
 	va_list ap;
-	va_start(ap, format);
 	int j;
 	int size;
 	char word;
@@ -22,6 +21,7 @@ int _printf(const char *format, ...)
 	void *ptr;
 	unsigned int hex;
 	unsigned int hex2;
+	va_start(ap, format);
 
 	if (format == NULL)
 		return (-1);
