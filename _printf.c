@@ -13,6 +13,18 @@ int _printf(const char *format, ...)
 	va_start(ap, format);
 	int i;
 	int size;
+	char word;
+	char *string;
+	int number;
+	int octal;
+	unsigned num;
+	unsigned int octa;
+	void *ptr;
+	unsigned int hex;
+	unsigned int hex2;
+
+	if (format == NULL)
+		return (-1);
 
 	size = strlen(format);
 	for (i = 0; i < size; i++)
@@ -25,11 +37,11 @@ int _printf(const char *format, ...)
 			switch (format[i])
 			{
 				case 'c':
-					char word = va_arg(ap, int);
+					word = va_arg(ap, int);
 					printf("%c", word);
 					break;
 				case 's':
-					char *string = va_arg(ap, char *);
+					string = va_arg(ap, char *);
 					printf("%s", string);
 					break;
 				case 'd':
@@ -41,23 +53,23 @@ int _printf(const char *format, ...)
 					printf("%i", octal);
 					break;
 				case 'u':
-					unsigned num = va_arg(ap, unsigned);
+					num = va_arg(ap, unsigned);
 					printf("%u", num);
 					break;
 				case 'o':
-					unsigned int octa = va_arg(ap, unsigned int);
+					octa = va_arg(ap, unsigned int);
 					printf("%o", octa);
 					break;
 				case 'p':
-					void *ptr = va_arg(ap, void *);
+					ptr = va_arg(ap, void *);
 					printf("%p", ptr);
 					break;
 				case 'x':
-					unsigned int hex = va_arg(ap, unsigned int);
+					hex = va_arg(ap, unsigned int);
 					printf("%x", hex);
 					break;
 				case 'X':
-					unsigned int hex2 = va_arg(ap, unsigned int);
+					hex2 = va_arg(ap, unsigned int);
 					printf("%X", hex2);
 					break;
 				case '%':
