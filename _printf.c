@@ -9,6 +9,7 @@
 void print_char(va_list ap)
 {
 	char word = va_arg(ap, int);
+	
 	putchar(word);
 }
 
@@ -18,6 +19,7 @@ void print_char(va_list ap)
 void print_string(va_list ap)
 {
 	char *string = va_arg(ap, char *);
+
 	printf("%s", string);
 }
 
@@ -27,6 +29,7 @@ void print_string(va_list ap)
 void print_integer(va_list ap)
 {
 	int number = va_arg(ap, int);
+
 	printf("%d", number);
 }
 
@@ -36,6 +39,7 @@ void print_integer(va_list ap)
 void print_octal(va_list ap)
 {
 	int octal = va_arg(ap, int);
+
 	printf("%i", octal);
 }
 
@@ -56,36 +60,36 @@ int _printf(const char *format, ...)
 	{
 		if (format[j] == '\n')
 			size--;
-			if (format[j] == '%')
+		if (format[j] == '%')
+		{
+			j++;
+			switch (format[j])
 			{
-				j++;
-				switch (format[j])
-				{
-					case 'c':
-						print_char(ap);
-						break;
-					case 's':
-						print_string(ap);
-						break;
-					case 'd':
-						print_integer(ap);
-						break;
-					case 'i':
-						print_octal(ap);
-						break;
-					case '%':
-						putchar('%');
-						break;
-					default:
-						putchar('%');
-						putchar(format[j]);
-						break;
-				}
+				case 'c':
+					print_char(ap);
+					break;
+				case 's':
+					print_string(ap);
+					break;
+				case 'd':
+					print_integer(ap);
+					break;
+				case 'i':
+					print_octal(ap);
+					break;
+				case '%':
+					putchar('%');
+					break;
+				default:
+					putchar('%');
+					putchar(format[j]);
+					break;
 			}
-			else
-			{
-				putchar(format[j]);
-			}
+		}
+		else
+		{
+			putchar(format[j]);
+		}
 	}
 	va_end(ap);
 	return (size);
