@@ -48,4 +48,4 @@ int main(void)
 }
 
 # Authors:
-Apah Benson and Ebuka Mbnesi
+Apah Benson and Ebuka Mbanusi
