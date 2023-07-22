@@ -10,17 +10,9 @@
 int _printf(const char *format, ...)
 {
 	va_list ap;
-	int j;
-	int size;
 	char word;
 	char *string;
-	int number;
-	int octal;
-	unsigned num;
-	unsigned int octa;
-	void *ptr;
-	unsigned int hex;
-	unsigned int hex2;
+	int number, octal, size, j;
 	va_start(ap, format);
 
 	if (format == NULL)
@@ -51,26 +43,6 @@ int _printf(const char *format, ...)
 				case 'i':
 					octal = va_arg(ap, int);
 					printf("%i", octal);
-					break;
-				case 'u':
-					num = va_arg(ap, unsigned);
-					printf("%u", num);
-					break;
-				case 'o':
-					octa = va_arg(ap, unsigned int);
-					printf("%o", octa);
-					break;
-				case 'p':
-					ptr = va_arg(ap, void *);
-					printf("%p", ptr);
-					break;
-				case 'x':
-					hex = va_arg(ap, unsigned int);
-					printf("%x", hex);
-					break;
-				case 'X':
-					hex2 = va_arg(ap, unsigned int);
-					printf("%X", hex2);
 					break;
 				case '%':
 					va_arg(ap, char *);
