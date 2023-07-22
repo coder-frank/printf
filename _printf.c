@@ -5,6 +5,7 @@
 
 /**
 * print_char - Print a character
+* @ap: the ap list
 */
 void print_char(va_list ap)
 {
@@ -15,6 +16,7 @@ void print_char(va_list ap)
 
 /**
 * print_string - Print a string
+* @ap: the ap list
 */
 void print_string(va_list ap)
 {
@@ -25,6 +27,7 @@ void print_string(va_list ap)
 
 /**
 * print_integer - Print an integer
+* @ap: the ap list
 */
 void print_integer(va_list ap)
 {
@@ -35,6 +38,7 @@ void print_integer(va_list ap)
 
 /**
 * print_octal - Print an octal number
+* @ap: the ap list
 */
 void print_octal(va_list ap)
 {
@@ -45,6 +49,7 @@ void print_octal(va_list ap)
 
 /**
 * _printf - Prints formatted output
+* @format: the format
 */
 int _printf(const char *format, ...)
 {
