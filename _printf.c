@@ -1,64 +1,43 @@
 #include "main.h"
-#include <stdio.h>
-#include <stdarg.h>
-#include <string.h>
-
 /**
-* _printf - prints any character
-* @format: The format
-* Return: The size of the string
-*/
+ * _printf - printf function
+ * @format: const char pointer
+ * Return: b_len
+ */
 int _printf(const char *format, ...)
 {
-	va_list ap;
-	char word;
-	char *string;
-	int number, octal, size, j;
-	va_start(ap, format);
+	int (*pfunc)(va_list, flags_t *);
+	const char *p;
+	va_list arguments;
+	flags_t flags = {0, 0, 0};
 
-	if (format == NULL)
+	register int count = 0;
+
+	va_start(arguments, format);
+	if (!format || (format[0] == '%' && !format[1]))
 		return (-1);
-
-	size = strlen(format);
-	for (j = 0; j < size; j++)
+	if (format[0] == '%' && format[1] == ' ' && !format[2])
+		return (-1);
+	for (p = format; *p; p++)
 	{
-		if (format[j] == '\n')
-			size--;
-		if (format[j] == '%')
+		if (*p == '%')
 		{
-			j++;
-			switch (format[j])
+			p++;
+			if (*p == '%')
 			{
-				case 'c':
-					word = va_arg(ap, int);
-					printf("%c", word);
-					break;
-				case 's':
-					string = va_arg(ap, char *);
-					printf("%s", string);
-					break;
-				case 'd':
-					number = va_arg(ap, int);
-					printf("%d", number);
-					break;
-				case 'i':
-					octal = va_arg(ap, int);
-					printf("%i", octal);
-					break;
-				case '%':
-					va_arg(ap, char *);
-					printf("%%");
-					break;
-				default:
-					putchar('%');
-					putchar(format[j]);
-					break;
+				count += _putchar('%');
+				continue;
 			}
-		}
-		else
-		{
-			putchar(format[j]);
-		}
+			while (get_flag(*p, &flags))
+				p++;
+			pfunc = get_print(*p);
+			count += (pfunc)
+				? pfunc(arguments, &flags)
+				: _printf("%%%c", *p);
+		} else
+			count += _putchar(*p);
 	}
-	return (size);
+	_putchar(-1);
+	va_end(arguments);
+	return (count);
 }
