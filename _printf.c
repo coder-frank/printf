@@ -10,6 +10,7 @@
 void print_char(va_list ap)
 {
 	char word = va_arg(ap, int);
+	
 	putchar(word);
 }
 
