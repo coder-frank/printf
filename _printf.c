@@ -10,7 +10,6 @@
 void print_char(va_list ap)
 {
 	char word = va_arg(ap, int);
-	
 	putchar(word);
 }
 
@@ -50,6 +49,7 @@ void print_octal(va_list ap)
 /**
 * _printf - Prints formatted output
 * @format: the format
+* Return: the size of the string
 */
 int _printf(const char *format, ...)
 {
