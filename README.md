@@ -109,5 +109,5 @@ These are all the tasks of this project, the ones that are completed link to the
 ---
 
 ### Authors
-* **BECKY ISIJOLA** - [temmyisijola@gmail.com](https://github.com/Becky04)
-* **GODSWILL KALU** - [messagelordwill@gmail.com](https://github.com/Lordwill1)
+* **Apah Benson** - [bensonapah@gmail.com](https://github.com/apah-dev)
+* **Ebuka Mbanusi** - [@gmail.com](https://github.com/)
