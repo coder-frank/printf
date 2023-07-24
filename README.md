@@ -110,4 +110,4 @@ These are all the tasks of this project, the ones that are completed link to the
 
 ### Authors
 * **Apah Benson** - [bensonapah@gmail.com](https://github.com/apah-dev)
-* **Ebuka Mbanusi** - [@gmail.com](https://github.com/)
+* **Ebuka Mbanusi** - [mbanusifrancis@gmail.com](https://github.com/coder-frank)
